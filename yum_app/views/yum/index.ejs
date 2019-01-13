@@ -1,0 +1,27 @@
+<% restaurants.forEach((restaurant, index) =>{ %>
+  <p><a href="http://localhost:3000/yum/<%=index%>"><%=restaurant.name%></a></p>
+  <p><%=restaurant.address%></p>
+  <p><%=restaurant.typeOfFood%></p>
+  <img src="<%=restaurant.restaurantImg%>" height=250px width=250px>
+  <p>Rating: <%=restaurant.rating%></p>
+  <p><%=restaurant.yelpUrl%></p>
+  <p>Popular Dishes:</p>
+  <ul>
+    <%restaurant.mostPopularItems.forEach(item =>{ %>
+    <li>
+      <%=item%>
+    </li>
+    <%}) %>
+  </ul>
+  <p>Reviews: </p>
+  <ul>
+    <%restaurant.reviews.forEach(item =>{ %>
+    <li>
+      <%=item%>
+    </li>
+    <%}) %>
+  </ul>
+<%})%>
+<form action="http://localhost:3000/yum/new" method="get">
+    <input type="submit" value="Add a Restaraunt"/>
+</form>

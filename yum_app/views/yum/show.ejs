@@ -1,0 +1,49 @@
+<h1><%=recipe.name%> Info</h1>
+<p><%=recipe.name%></p>
+<p><%=recipe.address%></p>
+<p><%=recipe.typeOfFood%></p>
+<img src="<%=recipe.restaurantImg%>" height=500px width=800px>
+<form action="http://localhost:3000/yum/<%=id%>/update" method="get">
+    <input type="submit" value="Edit Page"/>
+</form>
+<p>Rating: <%=recipe.rating%></p>
+<p><%=recipe.yelpUrl%></p>
+<p>Popular Dishes:</p>
+
+<ul>
+  <%recipe.mostPopularItems.forEach(item =>{ %>
+  <li>
+    <form action="/yum/<%=id%>/removeDish?_method=Delete" method="Post">
+      <input type="hidden" value="<%=item%>" name="<%=recipe.name%>">
+      <%=item%><button type="submit">Remove</button>
+    </form>
+  </li>
+  <%}) %>
+</ul>
+
+<form action="/yum/<%=id%>/addDish?_method=PUT" method="post">
+  Add dish: <input type="text" name="newDish">
+  <input type="submit" value="Submit">
+</form>
+
+<p>Reviews: </p>
+<ul>
+  <%recipe.reviews.forEach(item =>{ %>
+  <li>
+    <form action="/yum/<%=id%>/removeReview?_method=Delete" method="Post">
+      <input type="hidden" value="<%=item%>" name="<%=recipe.name%>">
+      <%=item%><br>
+      <button type="submit">Remove</button>
+    </form>
+  </li>
+  <%}) %>
+</ul>
+<form action="/yum/<%=id%>/addReview?_method=PUT" method="post">
+  Add review:<br>
+  <input type="text" name="newReview"><br>
+  <input type="submit" value="Submit">
+</form>
+
+<form action="?_method=Delete" method="Post">
+  <input type="submit" value="Delete Page">
+</form>

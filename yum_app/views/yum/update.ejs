@@ -1,0 +1,13 @@
+<h1>Update a restaurant</h1>
+
+<form action="/yum/<%=id%>?_method=PUT" method="POST">
+  name: <input type="text" name="name" value="<%=recipe.name%>"> <br>
+  address: <input type="text" name="address" value="<%=recipe.address%>"> <br>
+  typeOfFood: <input type="text" name="typeOfFood" value="<%=recipe.typeOfFood%>"> <br>
+  restaurantImg: <input type="text" name="restaurantImg" value="<%=recipe.restaurantImg%>"> <br>
+  rating: <input type="number" name="rating" value="<%=recipe.rating%>"> <br>
+  yelpUrl: <input type="text" name="yelpUrl" value="<%=recipe.yelpUrl%>"> <br>
+  mostPopularItems: <input type="text" name="mostPopularItems" value="<%=recipe.mostPopularItems%>"> <br>
+  reviews: <input type="text" name="reviews" value="<%=recipe.reviews%>"> <br>
+  <input type="submit" value="Update">
+</form>
